@@ -34,3 +34,13 @@
 
 <br>
 <a href="{{ route('users.create') }}">Add New User</a>
+<td>
+    <a href="{{ route('users.edit', $user->id) }}">Edit User</a>
+    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE') <!-- Critical for Delete -->
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this user?');">Delete
+            User</button>
+    </form>
+
+</td>
